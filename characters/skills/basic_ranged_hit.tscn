@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b58ntixnihau2"]
+
+[ext_resource type="Script" uid="uid://c7p42dbhxe5i2" path="res://characters/scripts/skill_scripts/basic_ranged_hit.gd" id="1_i4n7t"]
+[ext_resource type="Texture2D" uid="uid://dvphpynlepstw" path="res://images/sprites/square-16.png" id="2_j8k67"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mv8m"]
+size = Vector2(14, 14)
+
+[node name="basic_ranged_hit" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_i4n7t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8mv8m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_j8k67")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

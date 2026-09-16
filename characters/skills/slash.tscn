@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bniyrfvr0rq7i"]
+
+[ext_resource type="Script" uid="uid://ja6gxcswptob" path="res://characters/skills/slash.gd" id="1_fxysv"]
+[ext_resource type="Texture2D" uid="uid://dvphpynlepstw" path="res://images/sprites/square-16.png" id="2_q7gxy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmwi5"]
+size = Vector2(14, 14)
+
+[node name="Slash" type="Area2D" unique_id=1712100441]
+script = ExtResource("1_fxysv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2005757469]
+shape = SubResource("RectangleShape2D_rmwi5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2139869096]
+texture = ExtResource("2_q7gxy")

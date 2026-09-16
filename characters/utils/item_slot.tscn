@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bpsb1inl8dvjo"]
+
+[ext_resource type="Script" uid="uid://dux0n8dbvqua0" path="res://characters/utils/item_slot.gd" id="1_n6cxc"]
+[ext_resource type="Texture2D" uid="uid://dllncx20vmk2w" path="res://characters/utils/box.png" id="2_ksp5t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6cxc"]
+
+[node name="item_slot" type="RigidBody2D" unique_id=318576426 groups=["Droppeable"]]
+collision_layer = 128
+collision_mask = 128
+gravity_scale = 0.0
+script = ExtResource("1_n6cxc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=92691747]
+shape = SubResource("RectangleShape2D_n6cxc")
+
+[node name="Label" type="Label" parent="." unique_id=1118390433]
+offset_left = -19.0
+offset_top = 10.0
+offset_right = 21.0
+offset_bottom = 33.0
+text = "test"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1199541596]
+position = Vector2(0.49999887, 0.18750048)
+scale = Vector2(0.046979863, 0.045581654)
+texture = ExtResource("2_ksp5t")
