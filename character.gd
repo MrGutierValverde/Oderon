@@ -36,8 +36,7 @@ var cell_impassable = "impassable"
 	"right_hand" = "",
 	"left_hand" = "",
 	"belt" = "",
-	"right_leg" = "",
-	"left_leg" = "",
+	"legs" = "",
 	"ring_1" = "",
 	"ring_2" = "",
 }

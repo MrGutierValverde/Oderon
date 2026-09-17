@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dwauoqigkvwyv" path="res://wold/camera.gd" id="6_pvu10"]
 [ext_resource type="Script" uid="uid://diosnmrlhdk6w" path="res://wold/camera_target.gd" id="6_rcpit"]
 [ext_resource type="PackedScene" uid="uid://dlkg7e1h4nh75" path="res://Items/generic__sword.tscn" id="8_ludvf"]
+[ext_resource type="Texture2D" uid="uid://dllncx20vmk2w" path="res://characters/utils/box.png" id="9_rymrh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vmrrh"]
 texture = ExtResource("1_1v4vq")
@@ -77,6 +78,9 @@ size = Vector2(16, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12d44"]
 size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilubb"]
+size = Vector2(493, 210)
 
 [node name="testmap" type="Node2D" unique_id=976003277]
 script = ExtResource("1_12d44")
@@ -150,8 +154,22 @@ offset_bottom = 259.0
 text = "End turn"
 
 [node name="Inventory" type="Node2D" parent="." unique_id=779513736]
-visible = false
 
 [node name="Generic_sword" parent="Inventory" unique_id=1973998971 instance=ExtResource("8_ludvf")]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Inventory" unique_id=844316118 groups=["Droppeable", "Inventory_container"]]
+position = Vector2(-5, 175)
+collision_layer = 128
+collision_mask = 128
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inventory/RigidBody2D" unique_id=1234304418]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_ilubb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Inventory/RigidBody2D" unique_id=246463136]
+position = Vector2(-0.50000006, -0.5)
+scale = Vector2(0.994, 0.42200002)
+texture = ExtResource("9_rymrh")
 
 [connection signal="pressed" from="CanvasLayer/interface/Button" to="." method="_on_button_pressed"]

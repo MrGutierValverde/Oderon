@@ -30,7 +30,7 @@ var valid_positions = []
 
 func update_equipment_slots():
 	var slot_distance = 0
-	for part in body_parts:
+	for part in equipment_slots:
 		var slot_scene = preload("res://characters/utils/item_slot.tscn")
 		var slot = slot_scene.instantiate()
 		print(part)
@@ -49,6 +49,16 @@ func update_equipment_and_slot_visibility():
 func inventory_disabler(inventory_state):
 		for slot in item_slots.get_children():
 			slot.get_child(0).disabled = inventory_state
+func equip_item(item):
+	print("Equipped item", item.name)
+	temporary_modifiers[item.slot] = item.modifiers
+	equipment_slots[item.slot] = item.name
+	temporary_modifiers_changed()
+func unequip_item(item):
+	print("Unequipped item", item.name)
+	temporary_modifiers[item.slot] = {}
+	equipment_slots[item.slot] = ""
+	temporary_modifiers_changed()
 func _ready():
 	update_equipment_slots()
 	inventory_disabler(true)

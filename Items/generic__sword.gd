@@ -29,6 +29,9 @@ func _process(delta):
 		if Input.is_action_pressed("left_click"):
 			global_position = get_global_mouse_position()-offset
 		elif Input.is_action_just_released("left_click"):
+			if body_ref != null:
+				if not body_ref.is_in_group("Inventory_container"):
+					body_ref.get_parent().get_parent().equip_item(self)
 			Global.is_dragging = false
 			var tween = get_tree().create_tween()
 			if is_inside_droppeable:
@@ -38,10 +41,22 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Droppeable") and body.slot == slot:
+	if body.is_in_group("Inventory_container"):
+		if body_ref != null:
+			if body_ref.is_in_group("Droppeable") and not body_ref.is_in_group("Inventory_container"):
+				body_ref.get_parent().get_parent().unequip_item(self)
 		is_inside_droppeable = true
 		#body.modulate = Color(Color.BLUE,1)
 		body_ref = body
+		call_deferred("reparent",body)
+	elif body.is_in_group("Droppeable") and body.slot == slot:
+		if body_ref != null:
+			if body_ref.is_in_group("Droppeable") and not body_ref.is_in_group("Inventory_container"):
+				body_ref.get_parent().get_parent().unequip_item(self)
+		is_inside_droppeable = true
+		#body.modulate = Color(Color.BLUE,1)
+		body_ref = body
+		call_deferred("reparent",body)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

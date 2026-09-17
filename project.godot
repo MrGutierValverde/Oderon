@@ -26,6 +26,7 @@ Global="*uid://b3p21r4bd0q7x"
 [global_group]
 
 Droppeable=""
+Inventory_container=""
 
 [input]
 

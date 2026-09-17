@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://b58ntixnihau2" path="res://characters/skills/basic_ranged_hit.tscn" id="5_b0okd"]
 [ext_resource type="Script" uid="uid://b4yctoc8y4vuv" path="res://characters/scripts/skill_scripts/skill_bar.gd" id="7_ag48d"]
 [ext_resource type="Script" uid="uid://cbr4lmyicvvtw" path="res://characters/skill_slot.gd" id="7_yb0gv"]
-[ext_resource type="PackedScene" uid="uid://dlkg7e1h4nh75" path="res://Items/generic__sword.tscn" id="9_10t3e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cne60"]
 size = Vector2(16, 16)
@@ -85,8 +84,6 @@ script = ExtResource("7_yb0gv")
 
 [node name="Equipment" type="Node2D" parent="." unique_id=260112924]
 visible = false
-
-[node name="Generic _sword" parent="Equipment" unique_id=110108916 instance=ExtResource("9_10t3e")]
 
 [node name="ItemSlots" type="Node2D" parent="." unique_id=1846502075]
 visible = false

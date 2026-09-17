@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bickx8aqpeu5v"]
+[gd_scene format=3 uid="uid://bickx8aqpeu5v"]
 
 [ext_resource type="Script" uid="uid://cb7t4avb3qn6x" path="res://character.gd" id="1_54qew"]
 [ext_resource type="Script" uid="uid://4cho03evjpor" path="res://characters/test.gd" id="2_qqr4u"]
 
-[node name="Character" type="Node2D"]
+[node name="Character" type="Node2D" unique_id=331593572]
 script = ExtResource("1_54qew")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1867422879]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "0"
