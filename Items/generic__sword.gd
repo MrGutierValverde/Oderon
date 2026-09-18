@@ -1,5 +1,4 @@
 extends Item
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	slot = "head"
@@ -31,14 +30,18 @@ func _process(delta):
 		elif Input.is_action_just_released("left_click"):
 			if body_ref != null:
 				if not body_ref.is_in_group("Inventory_container"):
-					body_ref.get_parent().get_parent().equip_item(self)
+					if body_ref.get_parent().get_parent().has_method("equip_item"):
+						body_ref.get_parent().get_parent().equip_item(self)
 			Global.is_dragging = false
 			var tween = get_tree().create_tween()
 			if is_inside_droppeable:
-				tween.tween_property(self,"global_position",body_ref.global_position,0.2).set_ease(Tween.EASE_OUT)
+				move_to_visual_inventory()
 			else:
 				tween.tween_property(self,"global_position",initialPos,0.2).set_ease(Tween.EASE_OUT)
 
+func move_to_visual_inventory():
+	var tween = get_tree().create_tween()
+	tween.tween_property(self,"global_position",body_ref.global_position,0.2).set_ease(Tween.EASE_OUT)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Inventory_container"):
@@ -48,7 +51,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		is_inside_droppeable = true
 		#body.modulate = Color(Color.BLUE,1)
 		body_ref = body
-		call_deferred("reparent",body)
 	elif body.is_in_group("Droppeable") and body.slot == slot:
 		if body_ref != null:
 			if body_ref.is_in_group("Droppeable") and not body_ref.is_in_group("Inventory_container"):
@@ -56,7 +58,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		is_inside_droppeable = true
 		#body.modulate = Color(Color.BLUE,1)
 		body_ref = body
-		call_deferred("reparent",body)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

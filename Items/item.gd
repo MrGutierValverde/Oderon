@@ -8,6 +8,7 @@ extends Node2D
 @export var modifiers = {}
 @export var eqquiped = false
 @onready var character = $"../.."
+var equipped_to = ""
 var draggable = false
 var is_inside_droppeable = false
 var body_ref

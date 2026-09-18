@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://diosnmrlhdk6w" path="res://wold/camera_target.gd" id="6_rcpit"]
 [ext_resource type="PackedScene" uid="uid://dlkg7e1h4nh75" path="res://Items/generic__sword.tscn" id="8_ludvf"]
 [ext_resource type="Texture2D" uid="uid://dllncx20vmk2w" path="res://characters/utils/box.png" id="9_rymrh"]
+[ext_resource type="PackedScene" uid="uid://dkhawgo4kjn35" path="res://Items/generic_item.tscn" id="10_ilubb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vmrrh"]
 texture = ExtResource("1_1v4vq")
@@ -171,5 +172,8 @@ shape = SubResource("RectangleShape2D_ilubb")
 position = Vector2(-0.50000006, -0.5)
 scale = Vector2(0.994, 0.42200002)
 texture = ExtResource("9_rymrh")
+
+[node name="Generic_sword2" parent="Inventory" unique_id=1971477349 instance=ExtResource("10_ilubb")]
+position = Vector2(-100, 6)
 
 [connection signal="pressed" from="CanvasLayer/interface/Button" to="." method="_on_button_pressed"]

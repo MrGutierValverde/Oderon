@@ -1,13 +1,13 @@
-[gd_scene format=3 uid="uid://dlkg7e1h4nh75"]
+[gd_scene format=3 uid="uid://dkhawgo4kjn35"]
 
-[ext_resource type="Script" uid="uid://cdyq4eorc7b3t" path="res://Items/generic__sword.gd" id="1_1aygk"]
-[ext_resource type="Texture2D" uid="uid://yvha7cbr6qfj" path="res://icon.svg" id="2_fodl0"]
+[ext_resource type="Script" uid="uid://cdyq4eorc7b3t" path="res://Items/generic__sword.gd" id="1_v8xvn"]
+[ext_resource type="Texture2D" uid="uid://yvha7cbr6qfj" path="res://icon.svg" id="2_jyx45"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enwjv"]
 
 [node name="Generic_sword" type="Node2D" unique_id=1971477349]
 top_level = true
-script = ExtResource("1_1aygk")
+script = ExtResource("1_v8xvn")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1621011985]
 collision_layer = 128
@@ -17,9 +17,8 @@ collision_mask = 128
 shape = SubResource("RectangleShape2D_enwjv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=920329054]
-position = Vector2(-0.5000007, 0.37500036)
-scale = Vector2(0.1640625, 0.16210939)
-texture = ExtResource("2_fodl0")
+scale = Vector2(0.14062501, 0.16210939)
+texture = ExtResource("2_jyx45")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

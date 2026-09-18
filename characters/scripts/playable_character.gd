@@ -50,14 +50,22 @@ func inventory_disabler(inventory_state):
 		for slot in item_slots.get_children():
 			slot.get_child(0).disabled = inventory_state
 func equip_item(item):
+	if equipment_slots[item.slot] != "":
+		var inventory_node = $"../../Inventory"
+		var old_item_node = inventory_node.get_node(""+equipment_slots[item.slot])
+		unequip_item(old_item_node)
+		old_item_node.body_ref = inventory_node
+		old_item_node.move_to_visual_inventory()
 	print("Equipped item", item.name)
 	temporary_modifiers[item.slot] = item.modifiers
 	equipment_slots[item.slot] = item.name
+	item.equipped_to = name
 	temporary_modifiers_changed()
 func unequip_item(item):
 	print("Unequipped item", item.name)
 	temporary_modifiers[item.slot] = {}
 	equipment_slots[item.slot] = ""
+	item.equipped_to = ""
 	temporary_modifiers_changed()
 func _ready():
 	update_equipment_slots()
